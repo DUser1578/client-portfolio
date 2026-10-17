@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>demilade | Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of demilade, a young creative specializing in graphic design, web development, and video editing."
+    />
+    <style>
+      :root {
+        --bg: #0b1020;
+        --bg-soft: #111933;
+        --panel: rgba(17, 25, 51, 0.8);
+        --panel-strong: #151f3d;
+        --text: #eef3ff;
+        --muted: #adbbd9;
+        --primary: #7c9cff;
+        --primary-2: #57d7d1;
+        --accent: #ffb454;
+        --success: #7ef0b1;
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 20px 50px rgba(10, 13, 29, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(124, 156, 255, 0.18), transparent 30%),
+          radial-gradient(circle at top right, rgba(87, 215, 209, 0.12), transparent 25%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(14px);
+        background: rgba(11, 16, 32, 0.7);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 74px;
+      }
+
+      .brand {
+        font-size: 1.55rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        color: var(--text);
+      }
+
+      .brand span {
+        color: var(--primary-2);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .nav-cta {
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: #06101d;
+        font-weight: 700;
+        padding: 0.82rem 1.3rem;
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 58px 0 36px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 42px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.42rem 0.9rem;
+        border-radius: 999px;
+        background: rgba(124, 156, 255, 0.12);
+        border: 1px solid rgba(124, 156, 255, 0.22);
+        color: var(--primary);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 18px 0 14px;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 1.05;
+        letter-spacing: -0.06em;
+      }
+
+      .highlight {
+        color: var(--primary-2);
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-block;
+        border-radius: 999px;
+        padding: 0.95rem 1.5rem;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        color: #081421;
+        box-shadow: var(--shadow);
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--text);
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .badge {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 0.5rem 0.85rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .profile-card {
+        position: relative;
+        background: linear-gradient(180deg, rgba(124, 156, 255, 0.12), rgba(87, 215, 209, 0.08));
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .avatar {
+        width: 100%;
+        aspect-ratio: 1 / 1.1;
+        border-radius: 24px;
+        background:
+          linear-gradient(135deg, rgba(124, 156, 255, 0.45), rgba(87, 215, 209, 0.25)),
+          #1f2c4d;
+        display: grid;
+        place-items: center;
+        font-size: clamp(5rem, 9vw, 8rem);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .mini-card {
+        position: absolute;
+        right: -18px;
+        bottom: 28px;
+        background: rgba(10, 17, 30, 0.94);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 0.9rem 1rem;
+        box-shadow: var(--shadow);
+      }
+
+      .mini-card strong {
+        display: block;
+        font-size: 1.3rem;
+      }
+
+      .mini-card span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 28px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        letter-spacing: -0.05em;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 500px;
+      }
+
+      .stats-grid,
+      .feature-grid,
+      .case-grid,
+      .process-grid {
+        display: grid;
+        gap: 22px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .stat {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 1.4rem;
+      }
+
+      .stat small {
+        display: block;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.74rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        margin-top: 8px;
+        letter-spacing: -0.05em;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .about-box {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 28px;
+      }
+
+      .about-box p {
+        color: var(--muted);
+        margin-top: 0;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .feature {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.5rem;
+      }
+
+      .feature-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(124, 156, 255, 0.2), rgba(87, 215, 209, 0.2));
+        display: grid;
+        place-items: center;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+      }
+
+      .feature h3,
+      .case h3,
+      .process-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.4rem;
+      }
+
+      .feature p,
+      .case p,
+      .process-card p,
+      .project-meta,
+      .contact-card p {
+        color: var(--muted);
+        margin: 0;
+      }
+
+      .case-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .case {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 26px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .case-visual {
+        min-height: 180px;
+        display: grid;
+        place-items: center;
+        font-size: 4rem;
+        background: linear-gradient(135deg, rgba(124, 156, 255, 0.18), rgba(255, 180, 84, 0.18));
+      }
+
+      .case-content {
+        padding: 1.4rem 1.3rem 1.5rem;
+      }
+
+      .project-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.85rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        background: rgba(126, 240, 177, 0.12);
+        border: 1px solid rgba(126, 240, 177, 0.25);
+        color: var(--success);
+        border-radius: 999px;
+        padding: 0.25rem 0.6rem;
+        font-weight: 700;
+        font-size: 0.72rem;
+      }
+
+      .list {
+        display: grid;
+        gap: 12px;
+        padding-left: 18px;
+        color: var(--muted);
+        margin-top: 18px;
+      }
+
+      .list li::marker {
+        color: var(--primary-2);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .process-card {
+        background: rgba(255, 255, 255, 0.025);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.4rem;
+      }
+
+      .step-number {
+        display: inline-grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        font-weight: 800;
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        margin-bottom: 12px;
+      }
+
+      .cta-wrap {
+        background: linear-gradient(135deg, rgba(124, 156, 255, 0.12), rgba(87, 215, 209, 0.08));
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .cta-wrap h3 {
+        margin: 0 0 8px;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        letter-spacing: -0.05em;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        padding: 1.2rem 1.5rem;
+      }
+
+      footer {
+        padding: 24px 0 56px;
+        color: var(--muted);
+      }
+
+      .footer-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .about-grid,
+        .cta-wrap {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .stats-grid,
+        .feature-grid,
+        .case-grid,
+        .process-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .stats-grid,
+        .feature-grid,
+        .case-grid,
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head,
+        .footer-row,
+        .cta-wrap {
+          display: block;
+        }
+
+        .section-head {
+          margin-bottom: 14px;
+        }
+
+        .nav {
+          min-height: 64px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="#top" class="brand">demilade<span>.</span></a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#metrics">Metrics</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">Book a project</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Creative problem solver</span>
+            <h1>
+              I’m <span class="highlight">demilade</span>,<br />
+              a 16-year-old creator building digital experiences that convert ideas into impact.
+            </h1>
+            <p>
+              I specialize in graphic design, web development, and video editing — combining creativity,
+              strategic thinking, and clear communication to help brands and businesses stand out.
+            </p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">View my work</a>
+              <a href="#about" class="btn btn-secondary">Learn more</a>
+            </div>
+            <div class="hero-badges" aria-label="Skills">
+              <span class="badge">Graphic Design</span>
+              <span class="badge">Web Development</span>
+              <span class="badge">Video Editing</span>
+            </div>
+          </div>
+
+          <div class="profile-card" aria-label="Profile card">
+            <div class="avatar" aria-hidden="true">D</div>
+            <div class="mini-card">
+              <strong>12+</strong>
+              <span>Client projects delivered</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="metrics">
+        <div class="container">
+          <div class="section-head">
+            <h2>Impactful metrics</h2>
+            <p>
+              My work is driven by measurable results, creative clarity, and a strong ability to understand what each client truly needs.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat">
+              <small>Projects</small>
+              <strong>25+</strong>
+            </div>
+            <div class="stat">
+              <small>Clients</small>
+              <strong>12+</strong>
+            </div>
+            <div class="stat">
+              <small>On-time delivery</small>
+              <strong>96%</strong>
+            </div>
+            <div class="stat">
+              <small>Repeat work</small>
+              <strong>80%</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container about-grid">
+          <div class="about-box">
+            <div class="eyebrow">Why clients choose me</div>
+            <h2 style="margin: 16px 0; font-size: clamp(2rem, 3vw, 3rem); letter-spacing: -0.05em;">
+              Young in age, strong in thinking.
+            </h2>
+            <p>
+              Even at 16, I’ve learned that quality work is not just about talent — it’s about understanding the problem, thinking strategically, and delivering with purpose.
+            </p>
+            <p>
+              My critical thinking and cognitive skills help me break down complex briefs, identify what matters most, and turn vague ideas into polished digital solutions that meet real business needs.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="feature-icon">🧠</div>
+              <h3>Critical thinking</h3>
+              <p>I analyze problems deeply, find smart solutions, and make decisions that strengthen the final result.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">⚡</div>
+              <h3>Fast learning</h3>
+              <p>I adapt quickly, absorb new tools, and keep improving so I can stay ahead in a fast-moving digital space.</p>
+            </article>
+            <article class="feature">
+              <div class="feature-icon">💬</div>
+              <h3>Client communication</h3>
+              <p>I listen carefully, ask the right questions, and work with clients to make sure their goals are fully understood.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>Case studies &amp; projects</h2>
+            <p>
+              Every project is built around clarity, creativity, and a clear goal — whether it is to attract attention, build trust, or drive sales.
+            </p>
+          </div>
+
+          <div class="case-grid" id="projects">
+            <article class="case">
+              <div class="case-visual">💼</div>
+              <div class="case-content">
+                <div class="project-meta">
+                  <span>Brand + Web</span>
+                  <span class="pill">Case study 01</span>
+                </div>
+                <h3>Business Landing Page Redesign</h3>
+                <p>
+                  I redesigned a brand’s landing page to improve clarity, user flow, and visual appeal for a stronger online presence.
+                </p>
+                <ul class="list">
+                  <li>Improved brand positioning</li>
+                  <li>Streamlined messaging for easier customer understanding</li>
+                  <li>Boosted lead generation potential</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="case">
+              <div class="case-visual">🎨</div>
+              <div class="case-content">
+                <div class="project-meta">
+                  <span>Graphic Design</span>
+                  <span class="pill">Case study 02</span>
+                </div>
+                <h3>Creative Brand Kit</h3>
+                <p>
+                  Created a full visual identity package for a client needing a more premium and memorable presence across digital channels.
+                </p>
+                <ul class="list">
+                  <li>Logo and brand color system</li>
+                  <li>Social media templates</li>
+                  <li>Stronger visual consistency</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="case">
+              <div class="case-visual">🎬</div>
+              <div class="case-content">
+                <div class="project-meta">
+                  <span>Video Editing</span>
+                  <span class="pill">Case study 03</span>
+                </div>
+                <h3>Promo Video Campaign</h3>
+                <p>
+                  Produced a short promotional video that transformed raw footage into a clean, compelling story that better engaged viewers.
+                </p>
+                <ul class="list">
+                  <li>Edited for pacing and audience retention</li>
+                  <li>Added motion graphics and text overlays</li>
+                  <li>Made content feel more professional and polished</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <h2>How I work</h2>
+            <p>
+              My process combines strategy, creativity, and execution so each client receives work that is both beautiful and results-focused.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-card">
+              <div class="step-number">01</div>
+              <h3>Discover</h3>
+              <p>I learn the client’s goals, audience, and challenges before designing a clear direction.</p>
+            </article>
+            <article class="process-card">
+              <div class="step-number">02</div>
+              <h3>Create</h3>
+              <p>I turn insights into visually strong and strategically effective designs, websites, or edits.</p>
+            </article>
+            <article class="process-card">
+              <div class="step-number">03</div>
+              <h3>Deliver</h3>
+              <p>I refine the final work until it feels polished, functional, and aligned with the client’s vision.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <div class="cta-wrap">
+            <div>
+              <div class="eyebrow">Let’s build something meaningful</div>
+              <h3>Need a designer, developer, or editor who cares about quality?</h3>
+            </div>
+            <div class="contact-card">
+              <p>Email: demiladeportfolio@gmail.com</p>
+              <p>Instagram: @demiladecreative</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© 2026 demilade</div>
+        <div>Creative • Strategic • Hardworking</div>
+      </div>
+    </footer>
+  </body>
+</html>
